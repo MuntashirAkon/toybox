@@ -30,7 +30,7 @@ struct toy_list *toy_find(char *name)
   if (!CFG_TOYBOX || strchr(name, '/')) return 0;
 
   // Multiplexer name works as prefix, else skip first entry (it's out of order)
-  if (!toys.which && strstart(&name, "toybox")) return toy_list;
+  if (!toys.which && strstart(&name, TOYBOX_NAME)) return toy_list;
   bottom = 1;
 
   // Binary search to find this command.
